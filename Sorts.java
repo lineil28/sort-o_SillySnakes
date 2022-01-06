@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 public class Sorts{
+  int numComparisons, numSwaps;
+
   public static ArrayList populate( int size, int lo, int hi ) {
     ArrayList<Integer> retAL = new ArrayList<Integer>();
     while( size > 0 ) {
@@ -21,47 +23,49 @@ public class Sorts{
  }
  
   public static ArrayList<Comparable> bubble (ArrayList<Comparable> input )  {
-    boolean isSorted = true;
+    
     ArrayList<Comparable> data = input;
+
+    boolean isSorted = true;
     int size = data.size();
-    for (int i = 0; i < size; i++) {
+    int temp;
+    while(!isSorted){
       for (int j = size - 1; j > 0; j--) {
         //swapping
         isSorted = true;
         if (data.get(j).compareTo(data.get(j - 1)) < 0) {
-          isSorted = false; //you swap at least once
-          int temp = (int) data.get(j);
-          int temp2 = (int) data.get(j - 1);
-          data.remove(j);
-          data.add(j, temp2);
-          data.remove(j - 1);
-          data.add(j - 1, temp);
-         
+          isSorted = false; 
+          temp = data.get(j);
+          data.set(j, data.get(j - 1));
+          data.set(j - 1, temp);
+          
         }
         
       }
-      if (isSorted) {
-        break;
-        
-      }
+      
     }
   return data;  
   }
 
   public static ArrayList<Comparable> selection( ArrayList<Comparable> input) {
+    ArrayList<Comparable> data = input;
+
     //maxPos will point to position of SELECTION (greatest value)
     int maxPos = 0;
-    ArrayList<Comparable> data = input;
+
+    numComparisons = 0; numSwaps = 0;
     for(int pass = data.size(); pass > 0; pass--) {
+      numComparisons++;
       System.out.println( "\nbegin pass " + (data.size()-pass) );//diag
 
       //check for greatest
-      Comparable greatest = 0;
+      
       for(int index = 0; index < pass; index++) {
-        if(data.get(index).compareTo(greatest) > 0) {
-          greatest = data.get(index);
+        numComparisons++;
+        if(data.get(index).compareTo( data.get(maxPos)  ) > 0) {
           maxPos = index;
         }
+        numComparisons++;
         System.out.println( "maxPos: " + maxPos );//diag
         System.out.println( data );//diag
       }
@@ -69,9 +73,11 @@ public class Sorts{
       //shift
       data.add(pass, data.get(maxPos));
       data.remove(data.get(maxPos));
-
+      numSwaps++;
       
       System.out.println( "after swap: " +  data );//diag
+      System.out.println("Number of comparisons: " + numComparisons);
+      System.out.println("Number of swaps: " + numSwaps);
     }
     return data;
   }
@@ -99,6 +105,7 @@ public class Sorts{
          
        }
        else
+          
          break;
      }
    }
@@ -106,4 +113,3 @@ public class Sorts{
  }
  
 }
-
