@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Sorts{
-  int numComparisons, numSwaps;
+  public static int numComparisons, numSwaps;
 
   public static ArrayList populate( int size, int lo, int hi ) {
     ArrayList<Integer> retAL = new ArrayList<Integer>();
@@ -20,7 +20,7 @@ public class Sorts{
      //swap the values at position i and randomIndex
      al.set( i, al.set( randomIndex, al.get(i) ) );
    }
- }
+  }
 
   public static ArrayList<Comparable> bubble (ArrayList<Comparable> input )  {
     numComparisons = 0; numSwaps = 0;
@@ -28,7 +28,7 @@ public class Sorts{
 
     boolean isSorted = true;
     int size = data.size();
-    int temp;
+    Comparable temp;
     while(!isSorted){
       for (int j = size - 1; j > 0; j--) {
         numComparisons++; // Each time a for loop is run, there's a comparison being made
@@ -68,24 +68,27 @@ public class Sorts{
       for(int index = 0; index < pass; index++) {
 
         numComparisons++;   // Each time a for loop is run, there's a comparison being made        if(data.get(index).compareTo( data.get(maxPos)  ) > 0) {
-          maxPos = index;
-        }
+
+          if (data.get(index).compareTo( data.get(maxPos) ) > 0 ) {maxPos = index;}
+      }
         numComparisons++;
         System.out.println( "maxPos: " + maxPos );//diag
         System.out.println( data );//diag
-      }
+      //}
 
       //shift
-      data.add(pass, data.get(maxPos));
-      data.remove(data.get(maxPos));
-      numSwaps++;
+        data.add(pass, data.get(maxPos));
+        data.remove(data.get(maxPos));
+        numSwaps++;
+
+      }
 
       System.out.println( "after swap: " +  data );//diag
+      System.out.println("# of Comparisons: " + numComparisons);
+      System.out.println("# of Swaps: " + numSwaps);
+      return data;
     }
-    System.out.println("# of Comparisons: " + numComparisons);
-    System.out.println("# of Swaps: " + numSwaps);
-    return data;
-  }
+
 
   public static ArrayList<Comparable> insertion (ArrayList<Comparable> input ){
     numComparisons = 0; numSwaps = 0;

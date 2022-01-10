@@ -1,10 +1,10 @@
+import java.util.ArrayList;
 public class Driver{
 
-  public static void main (Strings [] args){
-    ArrayList coco = populate( 10, 1, 1000 );
-    System.out.println( "ArrayList coco before sorting:\n" + coco );
-    selectionSortV(coco);
-    System.out.println( "ArrayList coco after sorting:\n" + coco );
+  public static void main (String[] args){
+    ArrayList coco = Sorts.populate( 10, 1, 1000 );
+    Sorts.selection(coco);
+
   }
 
 }
