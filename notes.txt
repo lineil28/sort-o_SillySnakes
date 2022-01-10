@@ -19,4 +19,4 @@ Insertion sort:
 - The sorted region starts off with 1 value (since a 1-value list can be considered sorted)
 and increases by 1 each time a new value is transferred from the unsorted list to sorted.
 - If the list is in reverse sorted order, then there will be 1 comparison, 2 comparisons, 3 comparisons, and so on until (n - 1) comparisons
-- With a similar logic for Selection Sort, the time complexity of insertion sort is O(n^2).
+- With a similar logic for Selection Sort of 1 + 2 + 3 + ... (n - 1) comparisons, the time complexity of insertion sort is O(n^2).
