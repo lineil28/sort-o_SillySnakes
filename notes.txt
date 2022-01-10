@@ -1,0 +1,12 @@
+Bubble sort:
+
+Selection sort:
+- For every consecutive pass, the number of comparisons done
+decreases by 1, starting with n comparisons on the first pass.
+- This is because every pass has a new element guranteed in place.
+- The sum of the number of comparisons for each pass: 
+  1 + 2 + 3 + ... + n = n(n+1)/2, which has a degree of 2
+- Therefore, selection sort has a time complexity of O(n^2).
+
+Insertion sort:
+
