@@ -12,9 +12,11 @@ unsorted values by 1.
 - The sum of the number of comparisons for each pass: 
   1 + 2 + 3 + ... + n = n(n+1)/2, which has a degree of 2
 - Therefore, selection sort has an average time complexity of O(n^2).
+- Compared to bubble sort and insertion sort, there are fewer swaps that are being made
 
 Insertion sort:
 - Involves a sorted and unsorted region
 - The sorted region starts off with 1 value (since a 1-value list can be considered sorted)
 and increases by 1 each time a new value is transferred from the unsorted list to sorted.
-- The time complexity is O(n^2).
+- If the list is in reverse sorted order, then there will be 1 comparison, 2 comparisons, 3 comparisons, and so on until (n - 1) comparisons
+- With a similar logic for Selection Sort, the time complexity of insertion sort is O(n^2).
